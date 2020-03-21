@@ -1,28 +1,37 @@
 <template>
   <div id="app">
     <app-navigation />
+    <app-guest-homepage />
   </div>
 </template>
 
 <script>
 import AppNavigation from './components/core/Navigation.vue'
+import AppGuestHomepage from './components/GuestHomepage.vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: 'App',
   components: {
-    AppNavigation
+    AppNavigation,
+    AppGuestHomepage
   }
 }
 </script>
 
 <style>
 #app {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  background: url(./assets/site-background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 </style>
