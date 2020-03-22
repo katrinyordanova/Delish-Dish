@@ -1,21 +1,18 @@
 <template>
   <div id="app">
     <app-navigation />
-    <app-guest-homepage />
   </div>
 </template>
 
 <script>
 import AppNavigation from './components/core/Navigation.vue'
-import AppGuestHomepage from './components/GuestHomepage.vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: 'App',
   components: {
-    AppNavigation,
-    AppGuestHomepage
+    AppNavigation
   }
 }
 </script>
