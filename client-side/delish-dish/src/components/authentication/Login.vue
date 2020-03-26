@@ -1,6 +1,6 @@
 <template>
-    <div class="register">
-        <h1>Registration</h1>
+    <div class="login">
+        <h1>Login</h1>
         <form @submit.prevent="submitHandler">
             <b-form-group>
                 <b-form inline>
@@ -12,13 +12,9 @@
                     <b-input v-model="password" class="mb-2 mr-sm-2 mb-sm-0" id="password" type="password" />
                 </b-form>
             </b-form-group>
-            <b-form inline>
-                <label for="confirmPassword">Confirm Password:</label>
-                <b-input v-model="confirmPassword" class="mb-2 mr-sm-2 mb-sm-0" id="confirmPassword" type="password" />
-            </b-form>
             <div class="buttons">
-                <b-button href="#">Regiter</b-button>
                 <b-button href="#">Login</b-button>
+                <b-button href="#">Regiter</b-button>
             </div>
         </form>
     </div>
@@ -30,8 +26,7 @@ export default {
     data() {
         return {
             username: '',
-            password: '',
-            confirmPassword: ''
+            password: ''
         }
     },
     methods: {
@@ -42,15 +37,14 @@ export default {
 </script>
 
 <style scoped>
-.register {
+.login {
     width: 35em;
-    margin: 6em auto;
+    margin: 8em auto;
 }
 
 h1, label {
     color: rgb(255, 255, 255);
     text-shadow: 0px 0px 5px rgb(0, 0, 0);
-
 }
 
 h1 {
