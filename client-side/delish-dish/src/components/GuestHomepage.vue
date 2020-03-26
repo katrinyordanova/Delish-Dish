@@ -10,8 +10,7 @@
                 <h4>Otherwise:</h4><b-link href="#" class="login-button">Sign in</b-link>
             </div>
         </div>
-    </div>
-    
+    </div> 
 </template>
 
 <script>

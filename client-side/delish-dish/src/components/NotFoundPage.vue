@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name: 'appnot-found-page'
+    name: 'app-not-found-page'
 }
 </script>
 
@@ -17,7 +17,7 @@ export default {
 img {
     width: 30em;
     height: 23em;
-    margin-top: 9em;
+    margin-top: 5em;
     border-radius: 15px;
     background: rgba(26, 26, 26, 0.719);
     vertical-align: baseline;
