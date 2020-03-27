@@ -2,7 +2,7 @@
     <div>
         <img src="../assets/404.png" alt="not-found-page">
         <div class="home-button">
-            <b-link href="#">Go home</b-link>
+            <router-link to="/">Go home</router-link>
         </div>
     </div>
 </template>
@@ -16,7 +16,7 @@ export default {
 <style scoped>
 img {
     width: 30em;
-    height: 23em;
+    height: 22em;
     margin-top: 5em;
     border-radius: 15px;
     background: rgba(26, 26, 26, 0.719);

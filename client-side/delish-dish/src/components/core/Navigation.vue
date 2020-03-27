@@ -1,18 +1,23 @@
 <template>
     <div class="navbar navbar-expand-sm d-flex justify-content-center">
-        <img src="../../assets/chef.png" class="cheff" alt="Responsive image">
-        <img src="../../assets/brand-logo.png" class="float-left" alt="Responsive image">
-        <b-navbar-brand href="#" class="brand">Delish Dish</b-navbar-brand>
+        <img src="../../assets/chef.png" class="chef" alt="chef">
+        <img src="../../assets/brand-logo.png" class="float-left" alt="brand-logo">
+        <p class="brand">Delish Dish</p>
         <b-nav pills class="nav-links">
-            <b-nav-item active>Home</b-nav-item>
-            <b-nav-item active>Logout</b-nav-item>
+            <router-link to="/" class="home-button">Home</router-link>
+            <button @click="logout">Logout</button>
         </b-nav>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'app-navigation'
+    name: 'app-navigation',
+    methods: {
+        logout() {
+            return this.$router.push('/');
+        }
+    }
 }
 </script>
 
@@ -21,14 +26,14 @@ div, .brand {
     color: rgb(255, 255, 255);
 }
 
-.cheff, .nav-links {
+.chef, .nav-links {
     position: absolute;
 }
 
 div {
     background: rgb(255, 123, 0);
     box-shadow: 0px 0px 5px 0px #5F5F5F;
-    padding: 0.3em
+    padding: 0
 }
 
 img {
@@ -36,21 +41,21 @@ img {
     margin-top: -0.3em
 }
 
-.cheff {
-    width: 3em;
-    left: 2em;
-    padding-top: 0.25em
+.chef {
+    width: 2.8em;
+    left: 1.8em;
+    padding-top: 0.6em
 }
 
-.brand, .brand:hover {
-font-style: oblique;
+.brand {
     font-family: 'Homemade Apple', serif;
-    font-size: 2em;
-    padding-top: 0.55em;
-    margin-bottom: 0.02em;
+    font-size: 2.08em;
+    padding-top: 0.2em;
+    margin-bottom: 0;
 }
 
-.brand:hover {
+.brand:hover, p {
+    cursor: default;
     text-decoration: underline;
 }
 
@@ -60,12 +65,31 @@ font-style: oblique;
     font-size: 17.9px;
 }
 
-#app > div > ul > li > a {
-    background: rgb(255, 255, 255);
+ul > a,
+button {
     color: rgb(255, 123, 0);
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 123, 0);
+    border-radius: 6px;
+    padding: 0.5em 0.4em;
 }
 
-#app > div > ul > li:nth-child(1) > a {
-    margin-right: 0.7em;
+ul > a:hover,
+button:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 123, 0);
+    border: 1px solid rgb(255, 255, 255);
+}
+
+a {
+    margin-right: 0.3em;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+button:focus {
+    outline: 0;
 }
 </style>

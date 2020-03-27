@@ -4,10 +4,10 @@
         <h3>Do you want to learn how to cook? Or perhaps want to try something new? Well then, join our community and let's cook together.</h3>
         <div class="d-flex justify-content-center">
             <div class="register">
-                <h4>Don't have a profile?</h4><b-link class="register-button" href="#">Register</b-link>
+                <h4>Don't have a profile?</h4><router-link to="register" class="register-button" href="#">Register</router-link>
             </div>
             <div class="login">
-                <h4>Otherwise:</h4><b-link href="#" class="login-button">Sign in</b-link>
+                <h4>Otherwise:</h4><router-link to="login" href="#" class="login-button">Sign in</router-link>
             </div>
         </div>
     </div> 
@@ -22,12 +22,12 @@ export default {
 <style scoped>
 div {
     width: 40em;
-    margin: 6em auto;
+    margin: 7em auto;
 }
 
 .main {
     color: rgb(255, 255, 255);
-    text-shadow: 0px 0px 10px rgb(0, 0, 0);
+    text-shadow: 0px 0px 9px rgb(0, 0, 0);
 }
 
 h1, h3, h4 {

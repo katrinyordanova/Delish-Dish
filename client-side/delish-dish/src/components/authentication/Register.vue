@@ -11,14 +11,14 @@
                     <label for="password">Password:</label>
                     <b-input v-model="password" class="mb-2 mr-sm-2 mb-sm-0" id="password" type="password" />
                 </b-form>
+                <b-form inline>
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <b-input v-model="confirmPassword" class="mb-2 mr-sm-2 mb-sm-0" id="confirmPassword" type="password" />
+                </b-form>
             </b-form-group>
-            <b-form inline>
-                <label for="confirmPassword">Confirm Password:</label>
-                <b-input v-model="confirmPassword" class="mb-2 mr-sm-2 mb-sm-0" id="confirmPassword" type="password" />
-            </b-form>
-            <div class="buttons">
-                <b-button href="#">Regiter</b-button>
-                <b-button href="#">Login</b-button>
+            <div class="buttons d-flex justify-content-center">
+                <button>Regiter</button>
+                <router-link to="login" href="#">Login</router-link>
             </div>
         </form>
     </div>
@@ -36,19 +36,23 @@ export default {
     },
     methods: {
         submitHandler() {
+            return this.$router.push('/home');
         }
     }
 }
 </script>
 
 <style scoped>
+.register, button, a {
+    color: rgb(255, 255, 255);
+}
+
 .register {
     width: 35em;
-    margin: 6em auto;
+    margin: 7em auto;
 }
 
 h1, label {
-    color: rgb(255, 255, 255);
     text-shadow: 0px 0px 5px rgb(0, 0, 0);
 }
 
@@ -66,16 +70,27 @@ form.form-inline {
     margin-bottom: 1.3em;
 }
 
-a {
-    font-size: 22.8px;
-}
-
-a:nth-child(1) {
-    margin-right: 0.75em;
-    background-color: rgb(255, 123, 0);
-}
-
 .buttons {
-    margin-top: 3em
+    width: 37em;
+    margin: 0 auto;
 }
+
+button,
+button:hover,
+a {
+    border: 1px solid rgb(255, 123, 0);
+    background-color: rgb(255, 123, 0);
+    font-size: 21.3px;
+    padding: 0.5em 0.4em;
+    border-radius: 5px;
+}
+
+button {
+    margin-right: 0.9em;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 </style>
