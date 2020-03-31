@@ -1,7 +1,7 @@
 <template>
     <div class="register">
         <h1>Registration</h1>
-        <form @submit.prevent="submitHandler">
+        <form @submit.prevent="registerHandler(username, password)">
             <b-form-group>
                 <b-form inline>
                     <label for="username">Username:</label>
@@ -18,13 +18,15 @@
             </b-form-group>
             <div class="buttons d-flex justify-content-center">
                 <button>Regiter</button>
-                <router-link to="login" href="#">Login</router-link>
+                <router-link to="login">Login</router-link>
             </div>
         </form>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'app-register',
     data() {
@@ -35,8 +37,15 @@ export default {
         }
     },
     methods: {
-        submitHandler() {
-            return this.$router.push('/home');
+        registerHandler(username, password) {
+            axios.post('user/register', {
+                username,
+                password
+            }).then(() => {
+                return this.$router.push('/home');
+            }).catch(() => {
+                alert('Username already exists!')
+            })
         }
     }
 }
@@ -45,6 +54,10 @@ export default {
 <style scoped>
 .register, button, a {
     color: rgb(255, 255, 255);
+}
+
+label, a {
+    cursor: pointer;
 }
 
 .register {
@@ -63,7 +76,6 @@ h1 {
 label {
     width: 11em;
     font-size: 23px;
-    cursor: pointer;
 }
 
 form.form-inline {
@@ -92,5 +104,4 @@ button {
 a:hover {
     text-decoration: none;
 }
-
 </style>

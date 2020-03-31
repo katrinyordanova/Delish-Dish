@@ -1,7 +1,7 @@
 <template>
     <div class="login">
         <h1>Login</h1>
-        <form @submit.prevent="submitHandler">
+        <form @submit.prevent="loginHandler(username, password)">
             <b-form-group>
                 <b-form inline>
                     <label for="username">Username:</label>
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'app-register',
     data() {
@@ -30,8 +32,15 @@ export default {
         }
     },
     methods: {
-        submitHandler() {
-            return this.$router.push('home');
+        loginHandler(username, password) {
+            axios.post('user/login', {
+                username,
+                password
+            }).then(() => {
+                return this.$router.push('home');
+            }).catch(() => {
+                alert('Username or password not valid!')
+            })
         }
     }
 }
