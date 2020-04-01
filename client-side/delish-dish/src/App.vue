@@ -20,16 +20,16 @@ export default {
 
 <style>
 #app {
-  width: 100vw;
-  height: 100vh;
   text-align: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url(./assets/site-background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background: url(./assets/site-background.jpg) no-repeat center center; 
+  width: 100vw;
+  height: 100vh;
 }
 </style>
