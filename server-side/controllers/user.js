@@ -3,6 +3,13 @@ const config = require('../config/config');
 const utilities = require('../utilities');
 
 module.exports = {
+    get: {
+        users: (req, res, next) => {
+            models.user.find()
+            .then((users) => { res.send(users)})
+            .catch(next);
+        }
+    },
 	post: {
         register: (req, res, next) => {
             const { username, password } = req.body;
