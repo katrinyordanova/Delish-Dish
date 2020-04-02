@@ -14,14 +14,15 @@ module.exports = {
         register: (req, res, next) => {
             const { username, password } = req.body;
             models.user.findOne({ username }).then((user) => {
-                if(user.username === username) {
+                if(user === null) {
+                    models.user.create({ username, password})
+                        .then((createdUser) => res.send(createdUser))
+                        .catch(next);
+                }else if(user.username === username) {
                     res.status(401).send('User already exists');
                     return;
                 }
             });
-            models.user.create({ username, password})
-                .then((createdUser) => res.send(createdUser))
-                .catch(next);
         },
         login: (req, res, next) => {
             const { username, password } = req.body;
