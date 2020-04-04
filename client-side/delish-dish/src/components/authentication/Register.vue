@@ -1,7 +1,7 @@
 <template>
     <div class="register">
         <h1>Registration</h1>
-        <form @submit.prevent="registerHandler(username, password)">
+        <form @submit.prevent="submitHandler(username, password)">
             <b-form-group>
                 <b-form inline class="form-group">
                     <label for="username">Username:</label>
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import AuthenticationService from '@/services/AuthenticationService';
 import { validationMixin } from 'vuelidate';
 import { required, minLength } from 'vuelidate/lib/validators';
 
@@ -80,12 +80,10 @@ export default {
         }
     },
     methods: {
-        registerHandler(username, password) {
-            axios.post('user/register', {
-                username,
-                password
-            }).then(() => {
-                return this.$router.push('/home');
+        submitHandler(username, password) {
+            AuthenticationService.register(username, password)
+            .then(() => {
+                return this.$router.push('home');
             }).catch(() => {
                 this.invalidUser = true;
             })

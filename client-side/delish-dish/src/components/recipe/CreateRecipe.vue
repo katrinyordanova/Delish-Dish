@@ -2,7 +2,7 @@
     <div class="create-recipe">
         <h1>Add a recipe</h1>
         <h5>(Please fill in the whole form to create a new recipe)</h5>
-        <form @submit.prevent="createRecipe(title, cookTime, serves, image, ingredients, steps)">
+        <form @submit.prevent="submitRecipe(title, cookTime, serves, image, ingredients, steps)">
             <b-form-group>
                 <b-form inline>
                     <label for="title">Title:</label>
@@ -44,7 +44,7 @@
 <script>
 import { validationMixin } from 'vuelidate';
 import { required } from 'vuelidate/lib/validators';
-import axios from 'axios';
+import RecipeService from '@/services/RecipeService';
 
 export default {
     name: 'app-create-recipe',
@@ -84,11 +84,11 @@ export default {
         },
      },
     methods: {
-        createRecipe(title, cookTime, serves, image, ingredients, steps) {
-            axios.post('recipe/create-recipe', { title, cookTime, serves, image, ingredients, steps })
-                .then(() => { 
-                    this.$router.push('/home');
-                }).catch((error) => { console.log(error);})
+        submitRecipe(title, cookTime, serves, image, ingredients, steps) {
+            RecipeService.addRecipe(title, cookTime, serves, image, ingredients, steps)
+            .then(() => { 
+                this.$router.push('/home');
+            }).catch((error) => { console.log(error);})
         },
         addIngredient() {
             this.ingredients.push({ ingredient: '' })

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import RecipeService from '@/services/RecipeService';
 import Recipe from './Recipe.vue';
 
 export default {
@@ -26,7 +26,7 @@ export default {
         }
     },
     created() {
-        axios.get('recipe/recipes')
+        RecipeService.getRecipes()
         .then((res) => { this.recipes = res.data; })
         .catch((err) => { console.log(err); })
     },
