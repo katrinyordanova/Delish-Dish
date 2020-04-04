@@ -11,7 +11,7 @@
                 </b-form>
                 <template v-if="$v.username.$error">
                     <div class="validation" v-if="!$v.username.required">Username is required</div>
-                    <div class="validation" v-else-if="!$v.username.$touched && !$v.username.minLength">Username must be tleast 5 characters</div>
+                    <div class="validation" v-else-if="!$v.username.$touched && !$v.username.minLength">Username must be at least 5 characters</div>
                 </template>
                 <b-form inline>
                     <label for="password">Password:</label>
@@ -21,7 +21,7 @@
                 </b-form>
                 <template v-if="$v.password.$error">
                     <div class="validation" v-if="!$v.password.required">Password is required</div>
-                    <div class="validation" v-else-if="!$v.password.$touched && !$v.password.minLength">Password must be tleast 6 characters</div>
+                    <div class="validation" v-else-if="!$v.password.$touched && !$v.password.minLength">Password must be at least 6 characters</div>
                 </template>
                 <b-form inline>
                     <label for="confirmPassword">Confirm Password:</label>
@@ -33,6 +33,9 @@
                     <div class="validation" v-if="!$v.confirmPassword.sameAs">Passwords don't macth</div>
                 </template>
             </b-form-group>
+            <template v-if="invalidUser">
+                <div class="validation">Username is already taken</div>
+            </template>
             <div class="buttons d-flex justify-content-center">
                 <button :disabled="$v.$invalid">Regiter</button>
                 <router-link to="login">Login</router-link>
@@ -56,6 +59,7 @@ export default {
     name: 'app-register',
     data() {
         return {
+            invalidUser: false,
             username: '',
             password: '',
             confirmPassword: ''
@@ -83,7 +87,7 @@ export default {
             }).then(() => {
                 return this.$router.push('/home');
             }).catch(() => {
-                alert('Username already exists!')
+                this.invalidUser = true;
             })
         }
     }

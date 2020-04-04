@@ -4,12 +4,19 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import { VBHoverPlugin } from 'bootstrap-vue';
 import router from './plugins/router';
 import axios from 'axios';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-Vue.config.productionTip = false
-Vue.use(BootstrapVue)
-Vue.use(IconsPlugin)
-Vue.use(VBHoverPlugin)
+library.add(faMinusCircle);
+library.add(faPlusCircle);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
+Vue.config.productionTip = false;
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
+Vue.use(VBHoverPlugin);
 const API_URL = 'http://localhost:8888/api';
 
 axios.interceptors.request.use(function (config) {
