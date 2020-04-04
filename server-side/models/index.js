@@ -1,9 +1,9 @@
 const user = require('./user');
 const tokenBlacklist = require('./tokenBlacklist');
-const profile = require('./profile');
+const recipe = require('./recipe');
 
 module.exports = { 
     user,
     tokenBlacklist,
-    profile,
+    recipe
 };
