@@ -5,6 +5,7 @@
         <p class="brand">Delish Dish</p>
         <b-nav pills class="nav-links">
             <router-link to="/" class="home-button">Home</router-link>
+            <router-link to="/home/add-recipe" class="home-button">Add recipe</router-link>
             <button @click="logout">Logout</button>
         </b-nav>
     </div>

@@ -35,7 +35,7 @@
             </b-form-group>
             <div class="buttons">
                 <button :disabled="$v.$invalid">Submit</button>
-                <router-link to="home">Cancel</router-link>
+                <router-link to="/home">Cancel</router-link>
             </div>
         </form>
     </div>
