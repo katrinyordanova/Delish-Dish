@@ -10,7 +10,7 @@ module.exports = {
         one: (req, res, next) => {
             const id = req.params.id;
         
-            models.recipe.findOne(id)
+            models.recipe.findById(id)
             .then((recipe) => res.send(recipe))
             .catch(next);
         }
