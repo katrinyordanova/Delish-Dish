@@ -45,6 +45,10 @@ h1 {
     margin: 0.5em auto 0 3em;
 }
 
+div.container {
+    cursor: pointer;
+}
+
 div.row {
     width: 80.4em;
     margin: 0;

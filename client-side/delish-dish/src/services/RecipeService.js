@@ -1,11 +1,15 @@
 import axios from 'axios';
+const baseUrl = 'recipe/';
 
 export default {
+    getRecipe(id) {
+        return axios.get(baseUrl + id);
+    },
     getRecipes() {
-        return axios.get('recipe/recipes');
+        return axios.get(baseUrl + 'recipes');
     },
     addRecipe(title, cookTime, serves, image, ingredients, steps) {
-        return axios.post('recipe/create-recipe', { 
+        return axios.post(baseUrl + 'create-recipe', { 
             title, 
             cookTime, 
             serves, 
