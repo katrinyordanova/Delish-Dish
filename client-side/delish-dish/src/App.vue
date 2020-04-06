@@ -19,6 +19,10 @@ export default {
 </script>
 
 <style>
+#app, html {
+  background: url('./assets/site-background.jpg');
+}
+
 #app {
   text-align: center;
   font-family:  Helvetica, Arial, sans-serif;

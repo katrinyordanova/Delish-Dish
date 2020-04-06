@@ -103,12 +103,8 @@ export default {
 <style scoped>
 .create-recipe {
     width: 40em;
-    color: white;
-    margin: 0.5em auto 0 auto;
-}
-
-h1, label, p, h5, span, path {
-    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    margin: 0.5em auto;
+    color: rgb(78, 73, 73);
 }
 
 h1 {
@@ -116,7 +112,7 @@ h1 {
 }
 
 h5 {
-    margin: -1.35em 0 0.4em 0;
+    margin: -0.9em 0 0.8em 0;
 }
 
 label, a, span {
@@ -164,7 +160,7 @@ span {
 }
 
 svg {
-    color:rgb(255, 255, 255);
+    color:rgb(83, 18, 0);
     margin: 1.25em 0 0 0;
     font-size: 20px;
 }
@@ -174,8 +170,8 @@ svg:first-child {
 }
 
 button, a {
-    border: 1px solid rgb(255, 123, 0);
-    background-color: rgb(255, 123, 0);
+    border: 1px solid rgb(203, 238, 78);
+    background-color: rgb(203, 238, 78);
     font-size: 21px;
     padding: 0.5em 0.4em;
     border-radius: 5px;
@@ -196,9 +192,5 @@ button:disabled {
 
 a:hover {
     text-decoration: none;
-}
-
-button.upload-image {
-    margin-left:20em;
 }
 </style>

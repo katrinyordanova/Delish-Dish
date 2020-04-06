@@ -29,18 +29,16 @@ export default {
 .recipe {
     width: 16.1em;
     height: auto;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgb(37, 36, 36);
     border-radius: 10px;
     margin: 2em;
+    color:rgb(66, 65, 65);
+    background: rgb(203, 238, 78);
 }
 
 img {
     width: 16em;
     height: 14em;
     border-radius: 10px 10px 0 0;
-}
-
-h5 {
-    color: white
 }
 </style>

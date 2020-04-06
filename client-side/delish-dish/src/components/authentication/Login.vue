@@ -70,17 +70,18 @@ export default {
 </script>
 
 <style scoped>
-.login, button, a {
+.login, button, a, .validation {
     color: rgb(255, 255, 255);
 }
 
 .login {
     width: 32em;
     margin: 8em auto;
-}
-
-h1, label {
-    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    border: 10px solid rgb(203, 238, 78);
+    border-radius: 1em;
+    padding: 0.7em;
+    background:rgb(203, 238, 78);
+    text-shadow: 0px 0px 3px rgba(136, 119, 119, 0.3);
 }
 
 h1 {
@@ -100,24 +101,22 @@ form.form-inline {
 
 .validation {
     width: 18em;
-    background-color: rgb(226, 48, 48);
+    background-color: rgb(230, 107, 76);
     box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.85);
     border-radius: 5px;
     font-size: 20px;
-    color: rgb(255, 255, 255);
     margin: 0 auto 1em auto;
 }
 
 .buttons {
-    width: 37em;
-    margin: 0 auto 0 -1.3em;
+    width: 30em;
 }
 
 button,
 button:hover,
 a {
-    border: 1px solid rgb(255, 123, 0);
-    background-color: rgb(255, 123, 0);
+    border: 1px solid rgb(230, 107, 76);
+    background-color: rgb(230, 107, 76);
     font-size: 21.3px;
     padding: 0.5em 0.4em;
     border-radius: 5px;

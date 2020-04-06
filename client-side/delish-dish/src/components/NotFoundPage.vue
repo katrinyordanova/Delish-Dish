@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img src="../assets/404.png" alt="not-found-page">
+        <img src="../assets/404-page.jpeg" alt="not-found-page">
         <div class="home-button">
             <router-link to="/">Go home</router-link>
         </div>
@@ -15,11 +15,10 @@ export default {
 
 <style scoped>
 img {
-    width: 30em;
-    height: 22em;
-    margin-top: 5em;
+    width: 28em;
+    height: 20em;
+    margin-top: 7em;
     border-radius: 15px;
-    background: rgba(26, 26, 26, 0.719);
     vertical-align: baseline;
 }
 
@@ -34,9 +33,9 @@ h1 {
 }
 
 a {
-    border: 1px solid rgb(255, 123, 0);
+    border: 1px solid rgb(203, 238, 78);
     border-radius: 5px;
-    background-color: rgb(255, 123, 0);
+    background-color: rgb(203, 238, 78);
     padding: 0.7em;
     font-size: 20px;
     align-items: center;

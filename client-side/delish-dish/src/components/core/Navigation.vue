@@ -33,8 +33,8 @@ div, .brand {
 }
 
 div {
-    background: rgb(255, 123, 0);
-    box-shadow: 0px 0px 5px 0px #5F5F5F;
+    background: rgb(203, 238, 78);
+    box-shadow: 0px 0px 3px 0px #5F5F5F;
     padding: 0
 }
 
@@ -69,9 +69,9 @@ img {
 
 ul > a,
 button {
-    color: rgb(255, 123, 0);
+    color: rgb(190, 226, 60);
     background: rgb(255, 255, 255);
-    border: 1px solid rgb(255, 123, 0);
+    border: 1px solid rgb(215, 252, 82);
     border-radius: 6px;
     padding: 0.5em 0.4em;
 }
@@ -79,7 +79,7 @@ button {
 ul > a:hover,
 button:hover {
     color: rgb(255, 255, 255);
-    background-color: rgb(255, 123, 0);
+    background-color: rgb(203, 238, 78);
     border: 1px solid rgb(255, 255, 255);
 }
 

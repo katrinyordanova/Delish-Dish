@@ -1,15 +1,18 @@
 <template>
   <div class="recipe">
     <img :src="recipe.image" alt="recipe-image">
-    <h1>Title: {{recipe.title}}</h1>
-    <h1>Cooking time: {{recipe.cookTime}}</h1>
-    <h1>Serves: {{recipe.serves}}</h1>
-    <h1>Steps: {{recipe.steps}}</h1>
-    <h1>Ingredients:</h1>
-    <h1 v-for="value in recipe.ingredients"
-        :key="value._id"
-        :ingredient="value.ingredient">{{value.ingredient}}
-    </h1>
+    <div class="recipe-content">
+      <h1>{{recipe.title}}</h1>
+      <h3>{{recipe.cookTime}} minutes to cook</h3>
+      <h3>{{recipe.serves}} serves</h3>
+      <h2>Ingredients:</h2>
+      <h3 v-for="value in recipe.ingredients"
+          :key="value._id"
+          :ingredient="value.ingredient">{{value.ingredient}}
+      </h3>
+      <h2>Steps:</h2>
+      <h3>{{recipe.steps}}</h3>
+    </div>
     <div class="buttons">
       <button @click="editRecipe">Edit</button>
       <button @click="deleteRecipe">Delete</button>
@@ -60,16 +63,30 @@ export default {
 <style scoped>
 .recipe {
   margin: 1em auto;
-  color: rgb(230, 44, 44);
+  color:rgb(78, 73, 73);
 }
 
 img {
   height: 20em;
+  width: 27em;
+  border-radius: 10px;
+}
+
+.recipe-content {
+  margin: 0 auto;
+  width: 27em;
+  height: auto;
+  background-color: rgb(190, 226, 60);
+  border-radius: 10px;
+}
+
+h1 {
+  margin-top: 0.2em;
 }
 
 button, a {
-  border: 1px solid rgb(255, 123, 0);
-  background-color: rgb(255, 123, 0);
+  border: 1px solid rgb(190, 226, 60);
+  background-color: rgb(190, 226, 60);
   font-size: 21px;
   padding: 0.5em 0.4em;
   border-radius: 5px;

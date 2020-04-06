@@ -1,6 +1,5 @@
 <template>
-    <div class="recipe-list">
-        <h1>Recipies</h1>
+    <div class="recipe-list d-flex flex-column justify-content-center">
         <b-container>
             <b-row>
                 <Recipe v-for="recipe in recipes" 
@@ -38,11 +37,8 @@ export default {
 
 <style scoped>
 div.recipe-list {
+    margin-top: 0.5em;
     max-width: 88%
-}
-
-h1 {
-    margin: 0.2em auto 0 3em;
 }
 
 div.container {

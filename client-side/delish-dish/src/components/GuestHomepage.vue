@@ -22,12 +22,17 @@ export default {
 <style scoped>
 div {
     width: 40em;
-    margin: 7em auto;
+    height: 28em;
+    margin: 5em auto 0 auto;
+    color: rgb(255, 255, 255);
 }
 
 .main {
-    color: rgb(255, 255, 255);
-    text-shadow: 0px 0px 9px rgb(0, 0, 0);
+    border: 10px solid rgb(203, 238, 78);
+    border-radius: 1em;
+    padding: 0.7em;
+    background:rgb(203, 238, 78);
+    text-shadow: 0px 0px 3px rgba(136, 119, 119, 0.3);
 }
 
 h1, h3, h4 {
@@ -35,8 +40,10 @@ h1, h3, h4 {
 }
 
 h1 {
+    margin-left: 2.5em;
+    width: 10em;
     margin-bottom: 1em;
-    border-bottom: 3px solid rgb(255, 123, 0);
+    border-bottom: 3px solid rgb(230, 107, 76);
 }
 
 h3 + div {
@@ -50,17 +57,16 @@ h4 {
 
 .register,
 .login {
-    margin: 0;
+    margin: -1em;
     font-size: 18px;
 }
 
 .register-button,
 .login-button {
-    background: rgb(255, 123, 0);
+    background: rgb(230, 107, 76);
     color: rgb(255, 255, 255);
     padding: 1em;
     border-radius: 5px;
-    margin-top: 0.9em;
     text-decoration: none;
     text-shadow: none;
 }
