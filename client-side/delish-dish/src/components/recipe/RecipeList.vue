@@ -42,7 +42,7 @@ div.recipe-list {
 }
 
 h1 {
-    margin: 0.5em auto 0 3em;
+    margin: 0.2em auto 0 3em;
 }
 
 div.container {

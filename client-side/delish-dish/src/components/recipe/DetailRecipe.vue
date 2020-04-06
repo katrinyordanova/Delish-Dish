@@ -24,7 +24,20 @@ export default {
   name: 'app-recipe-detail',
   data() {
     return {
-      recipe: null,
+      recipe: [
+        {
+          title: '',
+          cookTime: '',
+          serves: '',
+          image: '',
+          ingredients: [
+            {
+              ingredient: ''
+            }
+          ],
+          steps: ''
+        }
+      ],
       id: this.$route.params.id
     }
   },
@@ -38,8 +51,8 @@ export default {
   },
   created() {
     RecipeService.getRecipe(this.id)
-    .then((res) => { this.recipe = res.data })
-    .catch((error) => { console.log(error);})
+    .then((res) => { this.recipe = res.data; })
+    .catch((error) => { 'hello' + console.log(error);})
   }
 }
 </script>
@@ -47,7 +60,7 @@ export default {
 <style scoped>
 .recipe {
   margin: 1em auto;
-  color: rgb(255, 255, 255);
+  color: rgb(230, 44, 44);
 }
 
 img {
