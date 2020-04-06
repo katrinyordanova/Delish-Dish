@@ -18,8 +18,18 @@ export default {
             steps 
         });
     },
-    editRecipe(id, title, cookTime, serves, image, ingredients, steps ) {
+    editRecipe(id, title, cookTime, serves, image, ingredients, steps) {
         return axios.put(baseUrl + 'edit-recipe/' + id, {
+            title, 
+            cookTime, 
+            serves, 
+            image, 
+            ingredients, 
+            steps 
+        });
+    },
+    deleteRecipe(id, title, cookTime, serves, image, ingredients, steps) {
+        return axios.delete(baseUrl + 'delete-recipe/' + id, {
             title, 
             cookTime, 
             serves, 
