@@ -9,7 +9,7 @@ module.exports = {
         },
         one: (req, res, next) => {
             const id = req.params.id;
-        
+
             models.recipe.findById(id)
             .then((recipe) => res.send(recipe))
             .catch(next);
@@ -24,18 +24,19 @@ module.exports = {
             .catch(next);
     },
     put: (req, res, next) => {
-        const { title, description } = req.body;
+        const { title, cookTime, serves, image, ingredients, steps } = req.body;
         const id = req.params.id;
 
-        models.recipe.updateOne({ _id: id}, { title, description }).then((updatedRecipe) => {
+        models.recipe.updateOne({ _id: id}, { title, cookTime, serves, image, ingredients, steps })
+        .then((updatedRecipe) => {
             res.send(updatedRecipe)
         }).catch(next);
     },
     delete: (req, res, next) => {
-        const { title, description } = req.body;
+        const { title, cookTime, serves, image, ingredients, steps } = req.body;
         const id = req.params.id;
 
-        models.recipe.deleteOne({ _id: id }, { title, description })
+        models.recipe.deleteOne({ _id: id }, { title, cookTime, serves, image, ingredients, steps })
         .then((deletedRecipe) => {
             res.send(deletedRecipe);
         }).catch(next);
