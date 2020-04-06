@@ -24,19 +24,20 @@ export default {
   name: 'app-recipe-detail',
   data() {
     return {
-      recipe: null
+      recipe: null,
+      id: this.$route.params.id
     }
   },
   methods: {
     editRecipe() {
-      return this.$router.push('/home/edit-recipe/' + this.$route.params.id);
+      return this.$router.push('/home/edit-recipe/' + this.id);
     },
     deleteRecipe() {
-      return this.$router.push('/home/delete-recipe/' + this.$route.params.id);
+      return this.$router.push('/home/delete-recipe/' + this.id);
     }
   },
   created() {
-    RecipeService.getRecipe(this.$route.params.id)
+    RecipeService.getRecipe(this.id)
     .then((res) => { this.recipe = res.data })
     .catch((error) => { console.log(error);})
   }

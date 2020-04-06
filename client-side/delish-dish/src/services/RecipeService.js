@@ -17,5 +17,15 @@ export default {
             ingredients, 
             steps 
         });
+    },
+    editRecipe(id, title, cookTime, serves, image, ingredients, steps ) {
+        return axios.put(baseUrl + 'edit-recipe/' + id, {
+            title, 
+            cookTime, 
+            serves, 
+            image, 
+            ingredients, 
+            steps 
+        });
     }
 }

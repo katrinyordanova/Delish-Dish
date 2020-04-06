@@ -7,6 +7,7 @@ import Login from '../components/authentication/Login.vue';
 import RecipeList from '../components/recipe/RecipeList.vue';
 import RecipeDetail from '../components/recipe/Detail.vue';
 import CreateRecipe from '../components/recipe/CreateRecipe.vue';
+import EditRecipe from '../components/recipe/EditRecipe.vue';
 import NotFoundPage from '../components/NotFoundPage.vue';
 
 const routes = [
@@ -15,7 +16,8 @@ const routes = [
     { path: '/login', component: Login },
     { path: '/home', component: RecipeList},
     { path: '/home/:id', component: RecipeDetail },
-    { path: '/home/add-recipe', component: CreateRecipe},
+    { path: '/home/add-recipe', component: CreateRecipe },
+    { path: '/home/edit-recipe/:id', component: EditRecipe },
     { path: '*', component: NotFoundPage }
 ]
 
