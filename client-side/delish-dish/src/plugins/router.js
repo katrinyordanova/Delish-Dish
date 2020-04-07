@@ -1,21 +1,26 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import GuestHomepage from '../components/GuestHomepage.vue';
-import Register from '../components/authentication/Register.vue';
-import Login from '../components/authentication/Login.vue';
-import UserHomepage from '../components/recipe/UserPages.vue';
-import RecipeList from '../components/recipe/RecipeList.vue';
-import DetailRecipe from '../components/recipe/DetailRecipe.vue';
-import CreateRecipe from '../components/recipe/CreateRecipe.vue';
-import EditRecipe from '../components/recipe/EditRecipe.vue';
-import DeleteRecipe from '../components/recipe/DeleteRecipe.vue';
+import GuestPages from '../components/guest/GuestPages.vue';
+import GuestHomepage from '../components/guest/GuestHomepage.vue';
+import Register from '../components/guest/authentication/Register.vue';
+import Login from '../components/guest/authentication/Login.vue';
+import UserHomepage from '../components/user/recipe/UserPages.vue';
+import RecipeList from '../components/user/recipe/RecipeList.vue';
+import DetailRecipe from '../components/user/recipe/DetailRecipe.vue';
+import CreateRecipe from '../components/user/recipe/CreateRecipe.vue';
+import EditRecipe from '../components/user/recipe/EditRecipe.vue';
+import DeleteRecipe from '../components/user/recipe/DeleteRecipe.vue';
 import NotFoundPage from '../components/NotFoundPage.vue';
 
 const routes = [
-    { path: '/', component: GuestHomepage },
-    { path: '/register', component: Register },
-    { path: '/login', component: Login },
+    { path: '/', component: GuestPages,
+        children: [
+            { path: '', component:  GuestHomepage,},
+            { path: 'register', component: Register },
+            { path: 'login', component: Login },
+        ] 
+    },
     { path: '/home/', component: UserHomepage,
         children: [
             { path: '', component: RecipeList }, 
