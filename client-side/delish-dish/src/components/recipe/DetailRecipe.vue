@@ -46,16 +46,16 @@ export default {
   },
   methods: {
     editRecipe() {
-      return this.$router.push('/home/edit-recipe/' + this.id);
+      return this.$router.push({ path: `/home/edit-recipe/${this.id}` });
     },
     deleteRecipe() {
-      return this.$router.push('/home/delete-recipe/' + this.id);
+      return this.$router.push({ path: `/home/delete-recipe/${this.id}` });
     }
   },
   created() {
     RecipeService.getRecipe(this.id)
     .then((res) => { this.recipe = res.data; })
-    .catch((error) => { 'hello' + console.log(error);})
+    .catch((error) => { console.log(error); })
   }
 }
 </script>

@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import GuestHomepage from '../components/GuestHomepage.vue';
 import Register from '../components/authentication/Register.vue';
 import Login from '../components/authentication/Login.vue';
+import UserHomepage from '../components/recipe/UserPages.vue';
 import RecipeList from '../components/recipe/RecipeList.vue';
 import DetailRecipe from '../components/recipe/DetailRecipe.vue';
 import CreateRecipe from '../components/recipe/CreateRecipe.vue';
@@ -15,11 +16,15 @@ const routes = [
     { path: '/', component: GuestHomepage },
     { path: '/register', component: Register },
     { path: '/login', component: Login },
-    { path: '/home', component: RecipeList},
-    { path: '/home/add-recipe', component: CreateRecipe },
-    { path: '/home/:id', component: DetailRecipe },
-    { path: '/home/edit-recipe/:id', component: EditRecipe },
-    { path: '/home/delete-recipe/:id', component: DeleteRecipe },
+    { path: '/home/', component: UserHomepage,
+        children: [
+            { path: '', component: RecipeList }, 
+            { path: 'add-recipe', component: CreateRecipe },
+            { path: ':id', component: DetailRecipe },
+            { path: 'edit-recipe/:id', component: EditRecipe },
+            { path: 'delete-recipe/:id', component: DeleteRecipe },
+        ]
+    },
     { path: '*', component: NotFoundPage }
 ]
 

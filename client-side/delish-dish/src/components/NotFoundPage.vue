@@ -3,6 +3,7 @@
         <img src="../assets/404-page.jpeg" alt="not-found-page">
         <div class="home-button">
             <router-link to="/">Go home</router-link>
+            <router-link to="/home">Go home</router-link>
         </div>
     </div>
 </template>
