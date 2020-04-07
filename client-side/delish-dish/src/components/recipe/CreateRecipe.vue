@@ -10,11 +10,11 @@
                 </b-form>
                 <b-form inline>
                     <label for="cookTime">Cooking time:</label>
-                    <b-input v-model="cookTime" @blur="$v.cookTime.$touch" class="mb-2 mr-sm-2 mb-sm-0" id="cookTime"></b-input><p>(minutes)</p>
+                    <b-input type="number" min="1" v-model="cookTime" @blur="$v.cookTime.$touch" class="mb-2 mr-sm-2 mb-sm-0" id="cookTime"></b-input><p>(minutes)</p>
                 </b-form>
                 <b-form inline>
                     <label for="serves">Serves:</label>
-                    <b-input v-model="serves" @blur="$v.serves.$touch" class="mb-2 mr-sm-2 mb-sm-0" id="serves"></b-input><p>(dishes)</p>
+                    <b-input type="number" min="1" v-model="serves" @blur="$v.serves.$touch" class="mb-2 mr-sm-2 mb-sm-0" id="serves"></b-input><p>(dishes)</p>
                 </b-form>
                 <b-form inline>
                     <label for="image">Image:</label>
@@ -82,7 +82,7 @@ export default {
         steps: {
             required
         },
-     },
+    },
     methods: {
         submitRecipe(title, cookTime, serves, image, ingredients, steps) {
             RecipeService.addRecipe(title, cookTime, serves, image, ingredients, steps)

@@ -5,32 +5,50 @@
             <b-form-group>
                 <b-form inline>
                     <label for="title">Title:</label>
-                    <b-input v-model="recipe.title" id="title"></b-input>
+                    <b-input v-model="recipe.title" @input="$v.title.$touch" id="title"></b-input>
                 </b-form>
+                <template v-if="$v.title.$error">
+                    <div class="validation" v-if="!$v.title.required">Title is required</div>
+                </template>
                 <b-form inline>
                     <label for="cookTime">Cooking time:</label>
-                    <b-input v-model="recipe.cookTime" id="cookTime"></b-input><p>(minutes)</p>
+                    <b-input type="number" min="1" v-model="recipe.cookTime" @blur="$v.cookTime.$touch" id="cookTime"></b-input><p>(minutes)</p>
                 </b-form>
+                <template v-if="$v.cookTime.$error">
+                    <div class="validation" v-if="!$v.cookTime.required">Cooking time is required</div>
+                </template>
                 <b-form inline>
                     <label for="serves">Serves:</label>
-                    <b-input v-model="recipe.serves" id="serves"></b-input><p>(dishes)</p>
+                    <b-input type="number" min="1" v-model="recipe.serves" @blur="$v.serves.$touch" id="serves"></b-input><p>(dishes)</p>
                 </b-form>
+                <template v-if="$v.serves.$error">
+                    <div class="validation" v-if="!$v.serves.required">Serves is required</div>
+                </template>
                 <b-form inline>
                     <label for="image">Image:</label>
-                    <b-input v-model="recipe.image" id="image"></b-input>
+                    <b-input v-model="recipe.image" @blur="$v.image.$touch" id="image"></b-input>
                 </b-form>
+                <template v-if="$v.image.$error">
+                    <div class="validation" v-if="!$v.image.required">Image is required</div>
+                </template>
                 <b-form inline>
                     <label for="ingredients">Ingredients:</label>
                     <div class="ingredient d-flex" v-for="(ingredient, key) in recipe.ingredients" :key="key">
                         <div>
-                            <b-input v-model="ingredient.ingredient" class="mb-2 mr-sm-2 mb-sm-0" id="ingredients"></b-input>
+                            <b-input v-model="ingredient.ingredient" @blur="$v.ingredient.$touch" class="mb-2 mr-sm-2 mb-sm-0" id="ingredients"></b-input>
                         </div>
                         <span @click="removeIngredient(key)" v-show="key || (!key && recipe.ingredients.length > 1)"><font-awesome-icon :icon="['fas', 'minus-circle']" /></span>
                         <span @click="addIngredient(key)" v-show="key === recipe.ingredients.length-1"><font-awesome-icon :icon="['fas', 'plus-circle']" /></span>
                     </div>
                 </b-form>
+                <template v-if="$v.ingredient.$error">
+                    <div class="validation" v-if="!$v.ingredient.required">Ingredients are required</div>
+                </template>
                 <label for="steps" id="steps">Steps:</label>
-                <b-form-textarea v-model="recipe.steps" rows="5"></b-form-textarea>
+                <b-form-textarea v-model="recipe.steps" @blur="$v.steps.$touch" rows="5"></b-form-textarea>
+                <template v-if="$v.steps.$error">
+                    <div class="validation" id="last-validation" v-if="!$v.steps.required">Steps is required</div>
+                </template>
             </b-form-group> 
             <div class="buttons">
                 <button>Submit</button>
@@ -42,27 +60,51 @@
 
 <script>
 import RecipeService from '@/services/RecipeService';
+import { validationMixin } from 'vuelidate';
+import { required } from 'vuelidate/lib/validators';
 
 export default {
     name: 'app-edit-recipe',
     data() {
         return {
-            recipe: [
-                {
-                    title: '',
-                    cookTime: '',
-                    serves: '',
-                    image: '',
-                    ingredients: [
+            recipe: 
+                    [
                         {
-                            ingredient: ''
+                            title: '',
+                            cookTime: '',
+                            serves: '',
+                            image: '',
+                            ingredients: [
+                                {
+                                    ingredient: ''
+                                }
+                            ],
+                            steps: ''
                         }
-                    ],
-                    steps: ''
-                }
                     ],
             id: this.$route.params.id
         }
+    },
+    mixins: [validationMixin],
+    validations: { 
+        title: {
+            required,
+        },
+        image: {
+            required
+        },
+        cookTime: {
+            required
+        },
+        serves: {
+            required
+        },
+        ingredient: {
+            required
+        },
+        steps: {
+            required
+        },
     },
     created() {
         RecipeService.getRecipe(this.id)
@@ -76,10 +118,12 @@ export default {
         removeIngredient(index) {
             this.recipe.ingredients.splice(index, 1);
         },
-        submitRecipe(title, cookTime, serves, image, ingredients, steps) {
-            RecipeService.editRecipe(this.id, title, cookTime, serves, image, ingredients, steps)
-            .then(() => { return this.$router.push('/home')})
-            .catch((err) => { console.log(err); });
+        submitRecipe(title, cookTime, serves, image, ingredients, steps) { 
+            if(title, cookTime, serves, image, ingredients, steps) {
+                RecipeService.editRecipe(this.id, title, cookTime, serves, image, ingredients, steps)
+                .then(() => { return this.$router.push('/home')})
+                .catch((err) => { console.log(err); });
+            }
         }
     }
 }
@@ -107,9 +151,23 @@ label, a, span {
     cursor: pointer;
 }
 
- label {
+label {
     width: 12em;
     font-size: 23px;
+}
+
+.validation {
+    width: 18em;
+    background-color: rgb(230, 107, 76);
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.85);
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 0 auto 1em auto;
+    color:rgb(255, 255, 255);
+}
+
+#last-validation {
+    margin-top: 1em;
 }
 
 form:nth-child(5) > div:not(:nth-child(2)) {
