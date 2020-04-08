@@ -3,14 +3,21 @@
         <img src="../assets/404-page.jpeg" alt="not-found-page">
         <div class="home-button">
             <router-link to="/">Go home</router-link>
-            <router-link to="/home">Go home</router-link>
+            <router-link v-if="isLogged" to="/home">Go home</router-link>
         </div>
     </div>
 </template>
 
 <script>
+import globalStore from '@/store/global';
+
 export default {
-    name: 'app-not-found-page'
+    name: 'app-not-found-page',
+    computed: {
+        isLogged() {
+            return globalStore.user;
+        }
+    }
 }
 </script>
 

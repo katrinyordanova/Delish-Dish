@@ -37,6 +37,7 @@
 import AuthenticationService from '@/services/AuthenticationService';
 import { validationMixin } from 'vuelidate';
 import { required } from 'vuelidate/lib/validators';
+import globalStore from '@/store/global';
 
 export default {
     name: 'app-register',
@@ -59,8 +60,9 @@ export default {
     methods: {
         submitHandler(username, password) {
             AuthenticationService.login(username, password)
-            .then(() => {
-                return this.$router.push('home');
+            .then((res) => {
+                globalStore.setUser(res.data);
+                this.$router.push('home');
             }).catch(() => {
                 this.invalidUser = true;
             });

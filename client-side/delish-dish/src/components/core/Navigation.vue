@@ -4,20 +4,35 @@
         <img src="../../assets/brand-logo.png" class="float-left" alt="brand-logo">
         <p class="brand">Delish Dish</p>
         <b-nav pills class="nav-links">
-            <router-link to="/" class="home-button">GuestHome</router-link>
-            <router-link to="/home" class="home-button">UserHome</router-link>
-            <router-link to="/home/add-recipe" class="home-button">Add recipe</router-link>
-            <button @click="logout">Logout</button>
+            <template v-if="isLogged">
+                <router-link to="/home" class="home-button">Home</router-link>
+                <router-link to="/home/add-recipe" class="home-button">Add recipe</router-link>
+                <button @click="logout">Logout</button>
+            </template>
+            <router-link to="/" v-else>Home</router-link>
         </b-nav>
     </div>
 </template>
 
 <script>
+import globalStore from '@/store/global';
+import AuthenticationService from '@/services/AuthenticationService';
+
 export default {
     name: 'app-navigation',
     methods: {
         logout() {
-            return this.$router.push('/');
+            AuthenticationService.logout()
+            .then(() => { 
+                globalStore.clearUser();
+                return this.$router.push('/');
+            })
+            .catch((err) => { console.log(err); })
+        }
+    },
+    computed: {
+        isLogged() {
+            return globalStore.user;
         }
     }
 }
