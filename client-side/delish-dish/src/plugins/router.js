@@ -1,36 +1,24 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import GuestPages from '../components/guest/GuestPages.vue';
-import GuestHomepage from '../components/guest/GuestHomepage.vue';
-import Register from '../components/guest/authentication/Register.vue';
-import Login from '../components/guest/authentication/Login.vue';
-import UserHomepage from '../components/user/recipe/UserPages.vue';
-import RecipeList from '../components/user/recipe/RecipeList.vue';
-import DetailRecipe from '../components/user/recipe/DetailRecipe.vue';
-import CreateRecipe from '../components/user/recipe/CreateRecipe.vue';
-import EditRecipe from '../components/user/recipe/EditRecipe.vue';
-import DeleteRecipe from '../components/user/recipe/DeleteRecipe.vue';
-import NotFoundPage from '../components/NotFoundPage.vue';
-
 const routes = [
-    { path: '/', component: GuestPages,
+    { path: '/', component: () => import ('@/components/guest/GuestPages'),
         children: [
-            { path: '', component:  GuestHomepage,},
-            { path: 'register', component: Register },
-            { path: 'login', component: Login },
+            { path: '', component: () => import('@/components/guest/GuestHomepage')},
+            { path: 'register', component: () => import('@/components/guest/authentication/Register') },
+            { path: 'login', component: () => import('@/components/guest/authentication/Login') },
         ] 
     },
-    { path: '/home/', component: UserHomepage,
+    { path: '/home/', component: () => import ('@/components/user/recipe/UserPages'),
         children: [
-            { path: '', component: RecipeList }, 
-            { path: 'add-recipe', component: CreateRecipe },
-            { path: ':id', component: DetailRecipe },
-            { path: 'edit-recipe/:id', component: EditRecipe },
-            { path: 'delete-recipe/:id', component: DeleteRecipe },
+            { path: '', component: () => import ('@/components/user/recipe/RecipeList') }, 
+            { path: 'add-recipe', component: () => import ('@/components/user/recipe/CreateRecipe') },
+            { path: ':id', component: () => import ('@/components/user/recipe/DetailRecipe') },
+            { path: 'edit-recipe/:id', component: () => import ('@/components/user/recipe/EditRecipe') },
+            { path: 'delete-recipe/:id', component: () => import ('@/components/user/recipe/DeleteRecipe') },
         ]
     },
-    { path: '*', component: NotFoundPage }
+    { path: '*', component: ()  => import ('@/components/NotFoundPage') }
 ]
 
 Vue.use(VueRouter)
