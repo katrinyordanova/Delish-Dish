@@ -9,14 +9,16 @@
                 <router-link to="/home/add-recipe" class="home-button">Add recipe</router-link>
                 <button @click="logout">Logout</button>
             </template>
-            <router-link to="/" v-else>Home</router-link>
+            <template v-else>
+            <router-link to="/">Home</router-link>
+            </template>
         </b-nav>
     </div>
 </template>
 
 <script>
-import globalStore from '@/store/global';
 import AuthenticationService from '@/services/AuthenticationService';
+import global from '@/store/global';
 
 export default {
     name: 'app-navigation',
@@ -24,7 +26,8 @@ export default {
         logout() {
             AuthenticationService.logout()
             .then(() => { 
-                globalStore.clearUser();
+                localStorage.clear();
+                global.clearUser();
                 return this.$router.push('/');
             })
             .catch((err) => { console.log(err); })
@@ -32,7 +35,7 @@ export default {
     },
     computed: {
         isLogged() {
-            return globalStore.user;
+            return global.user;
         }
     }
 }

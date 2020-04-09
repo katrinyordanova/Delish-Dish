@@ -15,7 +15,8 @@ export default {
     name: 'app-not-found-page',
     computed: {
         isLogged() {
-            return globalStore.user;
+            console.log(globalStore.getUser());
+            return globalStore.getUser();
         }
     }
 }

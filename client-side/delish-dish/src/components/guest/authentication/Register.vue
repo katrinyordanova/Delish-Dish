@@ -49,7 +49,7 @@ import AuthenticationService from '@/services/AuthenticationService';
 import { validationMixin } from 'vuelidate';
 import { required, minLength } from 'vuelidate/lib/validators';
 import globalStore from '@/store/global';
-
+ 
 function sameAs(field) {
     return function(value) {
         return this[field] === value;
@@ -84,7 +84,7 @@ export default {
         submitHandler(username, password) {
             AuthenticationService.register(username, password)
             .then((res) => {
-                globalStore.setUser(res.data);
+                globalStore.setUser(res.data._id);
                 return this.$router.push('home');
             }).catch(() => {
                 this.invalidUser = true;

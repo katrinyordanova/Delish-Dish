@@ -14,9 +14,11 @@
       <h3>{{recipe.steps}}</h3>
     </div>
     <div class="buttons">
-      <button @click="editRecipe">Edit</button>
-      <button @click="deleteRecipe">Delete</button>
-      <router-link to="/home">Go home</router-link>
+      <template v-if="this.isAuthor">
+        <button @click="editRecipe">Edit</button>
+        <button @click="deleteRecipe">Delete</button>
+      </template>
+      <router-link to="/home" class="home-button">Go home</router-link>
     </div>
   </div>
 </template>
@@ -41,7 +43,8 @@ export default {
           steps: ''
         }
       ],
-      id: this.$route.params.id
+      id: this.$route.params.id,
+      isAuthor: false
     }
   },
   methods: {
@@ -54,8 +57,20 @@ export default {
   },
   created() {
     RecipeService.getRecipe(this.id)
-    .then((res) => { this.recipe = res.data; })
-    .catch((error) => { console.log(error); })
+    .then((res) => {
+      const recipeAuthor = res.data.author.toString();
+      const currentUser = localStorage.getItem('user');
+
+      if(recipeAuthor === currentUser) {
+        localStorage.setItem('isAuthor', true);
+        this.isAuthor = true;
+      }else {
+        localStorage.setItem('isAuthor', false);
+        this.isAuthor = false;
+      }
+
+      this.recipe = res.data; 
+    }).catch((error) => { console.log(error); })
   }
 }
 </script>

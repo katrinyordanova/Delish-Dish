@@ -61,7 +61,7 @@ export default {
         submitHandler(username, password) {
             AuthenticationService.login(username, password)
             .then((res) => {
-                globalStore.setUser(res.data);
+                globalStore.setUser(res.data._id);
                 this.$router.push('home');
             }).catch(() => {
                 this.invalidUser = true;

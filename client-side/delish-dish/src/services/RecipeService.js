@@ -1,5 +1,6 @@
 import axios from 'axios';
 const baseUrl = 'recipe/';
+const userId = localStorage.getItem('user');
 
 export default {
     getRecipe(id) {
@@ -15,7 +16,8 @@ export default {
             serves, 
             image, 
             ingredients, 
-            steps 
+            steps,
+            userId
         });
     },
     editRecipe(id, title, cookTime, serves, image, ingredients, steps) {
@@ -25,7 +27,7 @@ export default {
             serves, 
             image, 
             ingredients, 
-            steps 
+            steps
         });
     },
     deleteRecipe(id, title, cookTime, serves, image, ingredients, steps) {
@@ -35,7 +37,7 @@ export default {
             serves, 
             image, 
             ingredients, 
-            steps 
+            steps
         });
     }
 }

@@ -38,7 +38,7 @@ export default {
 <style scoped>
 div.recipe-list {
     margin-top: 0.5em;
-    max-width: 88%
+    max-width: 88%;
 }
 
 div.container {

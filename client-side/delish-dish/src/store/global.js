@@ -5,11 +5,21 @@ const global = new Vue({
         user: null
     },
     methods: {
-        setUser(user) { this.user = user; },
-        clearUser() { this.user = null},
+        setUser(user) { 
+            this.user = user; 
+            return localStorage.setItem('user', user);
+        },
+        clearUser() { return this.user = null; },
     },
     computed: {
-        isLogged() { return !!this.user; },
+        isLogged() {
+            const user = localStorage.getItem('user');
+                if(user) {
+                    return user;
+                }
+                return null;
+        }
+        // isLogged() { return !!this.user; },
     }
 });
 
