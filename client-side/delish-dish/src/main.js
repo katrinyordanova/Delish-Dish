@@ -2,9 +2,9 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './plugins/router';
 import axios from 'axios';
+import globalStore from '@/store/global';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import { VBHoverPlugin } from 'bootstrap-vue';
-// import globalStore from '@/store/global';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
@@ -27,18 +27,18 @@ axios.interceptors.request.use(function (config) {
   return Promise.reject(error);
 });
 
-// router.beforeEach((to, from, next) => {
-//   const { authenticated, unauthenticated } = to.meta;
-//   const isLogged = globalStore.isLogged;
+router.beforeEach((to, from, next) => {
+  const { authenticated, unauthenticated } = to.meta;
+  const isLogged = globalStore.user;
+  
+  if (
+      (!authenticated && !unauthenticated) ||
+      (authenticated && isLogged) ||
+      (unauthenticated && !isLogged)
+  ) { next(error => { console.log(error);}); return }
 
-//   if (
-//       (!authenticated && !unauthenticated) ||
-//       (authenticated && isLogged) ||
-//       (unauthenticated && !isLogged)
-//   ) { next(); return }
-
-//   next(authenticated ? '/' : '/home');
-// });
+  next(authenticated ? '/' : '/home');
+});
 
 new Vue({
   render: h => h(App),
