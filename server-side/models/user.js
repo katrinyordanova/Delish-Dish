@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String
     },
+    recipes: [{ type: mongoose.Types.ObjectId, ref: 'Recipe'}]
 });
 
 userSchema.methods = {

@@ -16,11 +16,16 @@ module.exports = {
         }
     },
     post: (req, res, next)  => {
-        const { title, cookTime, serves, image, ingredients, steps } = req.body;     
-        models.recipe.create({ title, cookTime, serves, image, ingredients, steps})
+        const { title, cookTime, serves, image, ingredients, steps, userId } = req.body;
+
+        models.recipe.create({ title, cookTime, serves, image, ingredients, steps, author: userId })
             .then((createdRecipe) => {
-                res.send(createdRecipe);
-            })
+                return Promise.all([
+                    models.user.updateOne({ _id: userId }, { $push: { recipes: createdRecipe }}),
+                    models.recipe.findOne({ _id: createdRecipe._id })
+                ]);
+            }).then(([ modifiedObject, recipeObject ]) => {
+                res.send(recipeObject)    })  
             .catch(next);
     },
     put: (req, res, next) => {
