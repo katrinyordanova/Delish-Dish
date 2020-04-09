@@ -76,9 +76,13 @@ export default {
 </script>
 
 <style scoped>
-.recipe {
-  margin: 1em auto;
+@import '../../../shared/styles/userForm.css';
+
+.recipe, h1, h2, h3 {
   color:rgb(78, 73, 73);
+}
+.recipe {
+  margin: 0.7em auto;
 }
 
 img {
@@ -96,31 +100,22 @@ img {
 }
 
 h1 {
-  margin-top: 0.2em;
+  margin: 0.3em 0 0 0;
+  padding-top: 0.2em;
 }
 
-button, a {
+div.recipe-content > h3:nth-child(7) {
+  padding-bottom: 0.4em;
+}
+
+.buttons {
+  margin: 0 auto;
+}
+
+button,
+button:hover,
+a {
   border: 1px solid rgb(190, 226, 60);
   background-color: rgb(190, 226, 60);
-  font-size: 21px;
-  padding: 0.5em 0.4em;
-  border-radius: 5px;
-  color: rgb(255, 255, 255)
-}
-
-button {
-  margin-right: 0.9em;
-}
-
-a {
-  padding: 0.6em 0.4em; 
-}
-
-button:disabled {
-  cursor: not-allowed;
-}
-
-a:hover {
-  text-decoration: none;
 }
 </style>

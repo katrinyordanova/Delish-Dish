@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style scoped>
-div, .brand {
+div.navbar, .brand {
     color: rgb(255, 255, 255);
 }
 
@@ -50,7 +50,7 @@ div, .brand {
     position: absolute;
 }
 
-div {
+div.navbar {
     background: rgb(203, 238, 78);
     box-shadow: 0px 0px 3px 0px #5F5F5F;
     padding: 0
@@ -86,12 +86,14 @@ img {
 }
 
 ul > a,
-button {
+button,
+button:hover {
     color: rgb(190, 226, 60);
     background: rgb(255, 255, 255);
     border: 1px solid rgb(215, 252, 82);
     border-radius: 6px;
     padding: 0.5em 0.4em;
+    font-size: 18px;
 }
 
 ul > a:hover,
@@ -107,6 +109,7 @@ a {
 
 a:hover {
     text-decoration: none;
+    font-size: 18px;
 }
 
 button:focus {

@@ -109,19 +109,15 @@ export default {
 
 h1 {
     margin-bottom: 0.6em;
+    color: rgb(78, 73, 73);
 }
 
 h5 {
-    margin: -0.9em 0 0.8em 0;
-}
-
-label, a, span {
-    cursor: pointer;
+    margin: -0.9em 0 0.8em 3em;
 }
 
 label {
     width: 14em;
-    font-size: 23px;
 }
 
 form:nth-child(5) {
@@ -132,12 +128,8 @@ form:nth-child(5) > div:not(:nth-child(2)) {
     margin: -1.5em 0 0 20em;
 }
 
-form.form-inline {
-    margin-bottom: 1.3em;
-}
-
 p {
-    margin: 0;
+    margin: -2em 0 0 27em;
     font-size: 20px;
 }
 
@@ -145,22 +137,7 @@ p {
     margin-top: 1em;
 }
 
-#steps {
-    font-size: 25px;
-    margin: -1em 0 0.3em 1em;
-}
-
-textarea {
-    width: 35em;
-    margin: 0 auto;
-}
-
-span {
-    margin-bottom: 2em;
-}
-
 svg {
-    color:rgb(83, 18, 0);
     margin: 1.25em 0 0 0;
     font-size: 20px;
 }
@@ -169,28 +146,7 @@ svg:first-child {
     margin-left: 0.35em
 }
 
-button, a {
-    border: 1px solid rgb(203, 238, 78);
-    background-color: rgb(203, 238, 78);
-    font-size: 21px;
-    padding: 0.5em 0.4em;
-    border-radius: 5px;
-    color: rgb(255, 255, 255)
-}
-
-button {
-    margin-right: 0.9em;
-}
-
-a {
-    padding: 0.6em 0.4em; 
-}
-
-button:disabled {
-    cursor: not-allowed;
-}
-
-a:hover {
-    text-decoration: none;
+.buttons {
+    margin: 0 auto;
 }
 </style>

@@ -20,18 +20,19 @@ export default {
 </script>
 
 <style scoped>
+@import '../../shared/styles/guestForm.css';
+
 div {
     width: 40em;
     height: 28em;
     margin: 5em auto 0 auto;
-    color: rgb(255, 255, 255);
 }
 
 .main {
     border: 10px solid rgb(203, 238, 78);
+    background:rgb(203, 238, 78);
     border-radius: 1em;
     padding: 0.7em;
-    background:rgb(203, 238, 78);
     text-shadow: 0px 0px 3px rgba(136, 119, 119, 0.3);
 }
 
@@ -65,6 +66,7 @@ h4 {
 .login-button {
     background: rgb(230, 107, 76);
     color: rgb(255, 255, 255);
+    font-size: 18px;
     padding: 1em;
     border-radius: 5px;
     text-decoration: none;

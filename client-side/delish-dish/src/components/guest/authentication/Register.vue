@@ -49,7 +49,7 @@ import AuthenticationService from '@/services/AuthenticationService';
 import { validationMixin } from 'vuelidate';
 import { required, minLength } from 'vuelidate/lib/validators';
 import globalStore from '@/store/global';
- 
+
 function sameAs(field) {
     return function(value) {
         return this[field] === value;
@@ -95,15 +95,10 @@ export default {
 </script>
 
 <style scoped>
-.register, button, a, .validation {
-    color: rgb(255, 255, 255);
-}
-
-label, a {
-    cursor: pointer;
-}
+@import '../../../shared/styles/guestForm.css';
 
 .register {
+    color: rgb(255, 255, 255);
     width: 35em;
     border: 10px solid rgb(203, 238, 78);
     border-radius: 1em;
@@ -111,32 +106,6 @@ label, a {
     background:rgb(203, 238, 78);
     text-shadow: 0px 0px 3px rgba(136, 119, 119, 0.3);
     margin: 7em auto;
-}
-
-h1 {
-    margin-bottom: 0.9em;
-}
-
-label {
-    width: 11em;
-    font-size: 23px;
-}
-
-form.form-inline {
-    margin-bottom: 1.3em;
-}
-
-.validation {
-    width: 18em;
-    background-color: rgb(230, 107, 76);
-    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.85);
-    border-radius: 5px;
-    font-size: 20px;
-    margin: 0 auto 1em auto;
-}
-
-.buttons {
-    width: 33em;
 }
 
 button,
@@ -147,17 +116,5 @@ a {
     font-size: 21.3px;
     padding: 0.5em 0.4em;
     border-radius: 5px;
-}
-
-button {
-    margin-right: 0.9em;
-}
-
-button:disabled {
-    cursor: not-allowed;
-}
-
-a:hover {
-    text-decoration: none;
 }
 </style>

@@ -1,0 +1,53 @@
+.register,
+.login,
+button,
+a, a:hover,
+.validation,
+h1, h3, h4 {
+    color: rgb(255, 255, 255);
+}
+
+label,
+a {
+    cursor: pointer;
+}
+
+h1 {
+    margin-bottom: 0.9em;
+}
+
+label {
+    width: 11em;
+    font-size: 23px;
+}
+
+form.form-inline {
+    margin-bottom: 1.3em;
+}
+
+.validation {
+    width: 18em;
+    background-color: rgb(230, 107, 76);
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.85);
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 0 auto 1em auto;
+}
+
+.buttons {
+    width: 33em;
+}
+
+
+
+button {
+    margin-right: 0.9em;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+a:hover {
+    text-decoration: none;
+}

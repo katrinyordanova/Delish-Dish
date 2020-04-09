@@ -72,9 +72,7 @@ export default {
 </script>
 
 <style scoped>
-.login, button, a, .validation {
-    color: rgb(255, 255, 255);
-}
+@import '../../../shared/styles/guestForm.css';
 
 .login {
     width: 32em;
@@ -97,19 +95,6 @@ label {
     cursor: pointer;
 }
 
-form.form-inline {
-    margin-bottom: 1.3em;
-}
-
-.validation {
-    width: 18em;
-    background-color: rgb(230, 107, 76);
-    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.85);
-    border-radius: 5px;
-    font-size: 20px;
-    margin: 0 auto 1em auto;
-}
-
 .buttons {
     width: 30em;
 }
@@ -122,17 +107,5 @@ a {
     font-size: 21.3px;
     padding: 0.5em 0.4em;
     border-radius: 5px;
-}
-
-button {
-    margin-right: 0.9em;
-}
-
-button:disabled {
-    cursor: not-allowed;
-}
-
-a:hover {
-    text-decoration: none;
 }
 </style>

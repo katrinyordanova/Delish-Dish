@@ -31,7 +31,7 @@ export default {
     height: auto;
     border: 1px solid rgb(37, 36, 36);
     border-radius: 10px;
-    margin: 2em;
+    margin: 1.7em auto 1em auto;
     color:rgb(66, 65, 65);
     background: rgb(203, 238, 78);
 }
